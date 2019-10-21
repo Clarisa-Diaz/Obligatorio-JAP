@@ -8,30 +8,45 @@ const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
-//Función que se utiliza para actualizar los costos de publicación
-function updateTotalCosts(){
-
-}
 
 function updateSubtotal(){
-
+    let precioUni = parseInt(document.getElementById("precio").textContent);
+    let cant = parseInt(document.getElementById("cantidad").value);
+    let subTo = cant*precioUni;
+    document.getElementById("subtotal").innerHTML = subTo;
 }
 
-function showPaymentTypeNotSelected(){
 
-}
+function showArticles(array){
+    let contenido = "";
+    for (let i = 0; i < array.length; i++){
+        articulo = array[i];
+    contenido += `
+        <tr>
+            <td><img src="` + articulo.src + `" width="50px"></td>
+            <td>`+ articulo.name +`</td>
+            <td id="precio">`+ articulo.unitCost +`</td>
+            <td><input type="number" name="count" id="cantidad" value=`+ articulo.count +`</td>
+            <td>`+ articulo.currency + `</td>
+            <td><span id="subtotal"></span></td>
+        </tr>
+    `
+    document.getElementById("infoTable").innerHTML = contenido;
+    updateSubtotal(); 
 
-function hidePaymentTypeNotSelected(){
-
-}
-
-function showArticles(articles){
-
+    document.getElementById("cantidad").addEventListener("change", function(){
+        updateSubtotal();
+        })
+    }
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-
+    getJSONData(CART_INFO_URL).then(function(resultObj){
+        if(resultObj.status === "ok"){
+            showArticles(resultObj.data.articles);
+        }
+    });
 });

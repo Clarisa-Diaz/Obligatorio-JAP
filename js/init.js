@@ -40,7 +40,7 @@ var getJSONData = function(url){
     });
 }
 
-function nombre(){
+/*function nombre(){
   var name = sessionStorage.getItem('usuario');
   let contenido = "";
   contenido += `
@@ -48,7 +48,7 @@ function nombre(){
   <p> ` + name + ` <p>
   `
   document.getElementById("").innerHTML = contenido; 
-}
+}*/
 
 // document.addEventListener("DOMContentLoaded", function(e){
   // getJSONData(LIST_URL).then(function(resultObj){
@@ -59,4 +59,4 @@ function nombre(){
     // }
   // }};
 
-nombre();
+//nombre();
