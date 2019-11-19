@@ -1,7 +1,7 @@
 let productUnitCost = 0;
 let productCurrency = "";
 let subtotal = 0;
-let shippingPercentage = 0.15;
+let shippingPercentage = "";
 let total = 0;
 let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
@@ -58,4 +58,89 @@ document.addEventListener("DOMContentLoaded", function(e){
             showArticles(resultObj.data.articles);
         }
     });
+});
+
+document.getElementById("premium").addEventListener("change", function(){
+    shippingPercentage = 0.15;
+    updateTotalCosts();
+});
+
+document.getElementById("express").addEventListener("change", function(){
+    shippingPercentage = 0.07;
+    updateTotalCosts();
+});
+
+document.getElementById("standar").addEventListener("change", function(){
+    shippingPercentage = 0.05;
+    updateTotalCosts();
+});
+
+//Se obtiene el formulario de publicación de producto
+var cartForm = document.getElementById("cart-info");
+
+//Se agrega una escucha en el evento 'submit' que será
+//lanzado por el formulario cuando se seleccione 'Vender'.
+cartForm.addEventListener("submit", function(e){
+
+    let productNameInput = document.getElementById("productName");
+    let productCategory = document.getElementById("productCategory");
+    let productCost = document.getElementById("productCostInput");
+    let infoMissing = false;
+
+    //Quito las clases que marcan como inválidos
+    productNameInput.classList.remove('is-invalid');
+    productCategory.classList.remove('is-invalid');
+    productCost.classList.remove('is-invalid');
+
+    //Se realizan los controles necesarios,
+    //En este caso se controla que se haya ingresado el nombre y categoría.
+    //Consulto por el nombre del producto
+    if (productNameInput.value === "")
+    {
+        productNameInput.classList.add('is-invalid');
+        infoMissing = true;
+    }
+    
+    //Consulto por la categoría del producto
+    if (productCategory.value === "")
+    {
+        productCategory.classList.add('is-invalid');
+        infoMissing = true;
+    }
+
+    //Consulto por el costo
+    if (productCost.value <=0)
+    {
+        productCost.classList.add('is-invalid');
+        infoMissing = true;
+    }
+    
+    if(!infoMissing)
+    {
+        //Aquí ingresa si pasó los controles, irá a enviar
+        //la solicitud para crear la publicación.
+
+        getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
+            let msgToShowHTML = document.getElementById("resultSpan");
+            let msgToShow = "";
+
+            //Si la publicación fue exitosa, devolverá mensaje de éxito,
+            //de lo contrario, devolverá mensaje de error.
+            if (resultObj.status === 'ok')
+            {
+                msgToShow = resultObj.data.msg;
+            }
+            else if (resultObj.status === 'error')
+            {
+                msgToShow = ERROR_MSG;
+            }
+
+            bootbox.alert(msgToShow, null);
+        });
+    }
+
+    //Esto se debe realizar para prevenir que el formulario se envíe (comportamiento por defecto del navegador)
+    if (e.preventDefault) e.preventDefault();
+        return false;
+});
 });

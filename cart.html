@@ -30,6 +30,7 @@
     <link href="css/dropzone.css" rel="stylesheet">
   </head>
   <body>
+    <form name="cartform">
       <nav class="navbar navbar-dark navbar-expand-lg site-header   sticky-top py-1 bg-dark">
           <div class="container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,20 +83,39 @@
     </main>
     <div class="container">
               <div class="row">
-                </div>
+              </div>
+                  <hr class="mb-4">
+                  <h5 class="mb-3">Tipo de envío</h5>
+                  <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                      <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+                      <label class="custom-control-label" for="premium">Premium 2 a 5 días (15%)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="express" name="publicationType" type="radio" class="custom-control-input" required="">
+                      <label class="custom-control-label" for="express">Express 5 a 8 días (7%)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input id="standar" name="publicationType" type="radio" class="custom-control-input" required="">
+                      <label class="custom-control-label" for="standar">Estándar 12 a 15 días (5%)</label>
+                    </div>
+                    <div class="row">
+                      <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+                    </div>
+              </div>
                 <hr class="mb-4">
                 <h5 class="mb-3">Datos para el envío</h5>
                 <div class="row">
                     <div class="col-md-3 mb-3">
                       <label for="zip">Dirección</label>
-                      <input type="text" class="form-control" id="" placeholder="" required>
+                      <input type="text" class="form-control" id="dire" placeholder="" required>
                       <div class="invalid-feedback">
                         Ingrese una dirección.
                       </div>
                     </div>
                       <div class="col-md-2 mb-3">
                           <label for="zip">Número</label>
-                          <input type="number" class="form-control" id="" placeholder="" required>
+                          <input type="text" class="form-control" id="num" placeholder="" required>
                           <div class="invalid-feedback">
                             Ingrese número de puerta.
                           </div>
@@ -106,7 +126,6 @@
                           <label for="zip">Esquina</label>
                           <input type="text" class="form-control" id="" placeholder="" required>
                           <div>
-                            
                           </div>
                         </div>
                       <div class="col-md-3 mb-3">
@@ -122,20 +141,13 @@
                       </select>
                     </div>
                   </div>
-              <div>
-              <hr class="mb-4">
-              <h5 class="mb-3">Formas de pago</h5>                
-              </div>
-              <div class="row">
-                <button type="button" class="m-1 btn-link" data-toggle="modal" data-target="#payModal">Elige formas de pago</button>
-              </div>
               <hr class="mb-4">
               <h4 class="mb-3">Costos</h4>
               <ul class="list-group mb-3">
                   <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                       <h6 class="my-0">Precio</h6>
-                      <small class="text-muted">Unitario del producto</small>
+                      <small class="text-muted">Subtotal</small>
                     </div>
                     <span class="text-muted" id="productCostText">-</span>
                   </li>
@@ -152,8 +164,10 @@
                   </li>
                 </ul>
                 <div class="row">
-                  <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Costos de envíos</button>
                 </div>
+                <hr class="mb-4">
+                <h4 class="mb-3">Formas de pago</h4>
+                <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#payModal">Seleccionar</button>
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
             </form>
@@ -212,23 +226,63 @@
               </button>
             </div>
             <div class="modal-body">
+              <div class="row">
               <div class="container">
-                  <div class="row">
-                      <h5 class="text-warning">Tarjeta de Credito</h5>
-                      <p></p>
-                  </div>
-                  <hr>
-                  <div class="row">
-                      <h5>Depósito bancario</h5>
-                  </div>
+                <div class="custom-control custom-radio">
+                <input id="credit" name="creditType" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
               </div>
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label for="creditnum">Número de tarjeta</label>
+                    <input type="text" class="form-control" id="creditnum" placeholder="" required>
+                    <div class="invalid-feedback">
+                      Ingrese número de tarjeta.
+                    </div>
+            <div class="col-md-3 mb-3">
+                <label for="segnum">Código de seg.</label>
+                <input type="text" class="form-control" id="segnum" placeholder="" required>
+                <div class="invalid-feedback">
+                  Ingrese número de tarjeta.
+                </div>
+              </div>
+                </div>
+              </div class="row">
+              <div class="col-md-3 mb-3">
+                  <label for="expiredcard">Vencimiento (MM/AA)</label>
+                  <input type="text" class="form-control" id="expiredcard" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Ingrese fecha de vemcimiento.
+                  </div>
+                </div>
+            <hr>
+          </div class="row"> 
+          <div class="custom-control custom-radio">
+              <input id="bank" name="bankType" type="radio" class="custom-control-input">
+              <label class="custom-control-label" for="bank">Depósito bancario</label>
             </div>
-            <!--ACA TERMINA EL MODAL-->
+          </div>
+            <div class="col-md-5 mb-3">
+                <label for="bankaccount">Número de cuenta</label>
+                <input type="text" class="form-control" id="bankaccount" placeholder="" required>
+                <div class="invalid-feedback">
+                  Ingrese cuenta bancaria.
+                </div>
+              </div>
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--ACA TERMINA EL MODAL-->
       <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       <script src="js/vendor/jquery-3.4.1.min.js"></script>
       <script src="js/vendor/bootstrap.bundle.min.js"></script>
       <script src="js/vendor/bootbox.min.js"></script>
       <script src="js/init.js"></script>
       <script src="js/cart.js"></script>
+    </form>
     </body>
 </html>
