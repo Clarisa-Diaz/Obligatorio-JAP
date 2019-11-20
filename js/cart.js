@@ -74,3 +74,18 @@ document.getElementById("standar").addEventListener("change", function(){
     shippingPercentage = 0.05;
     updateTotalCosts();
 });
+
+ //Hace que en el modal de pago se seleccione una forma y desabilita el otro 
+document.getElementById("tarjradio").addEventListener("change", function(){
+    document.getElementById("creditpay").disabled = false;
+    document.getElementById("bankpay").disabled = true;
+    document.getElementById("span1").innerHTML = CREDIT_CARD_PAYMENT;
+});
+
+document.getElementById("bankradio").addEventListener("change", function(){
+    document.getElementById("bankpay").disabled = false;
+    document.getElementById("creditpay").disabled = true;
+    document.getElementById("codpay").disabled = true;
+    document.getElementById("vencipay").disabled = true;
+    document.getElementById("span1").innerHTML = BANKING_PAYMENT;
+});

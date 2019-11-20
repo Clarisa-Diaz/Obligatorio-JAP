@@ -167,6 +167,7 @@
                 </div>
                 <hr class="mb-4">
                 <h4 class="mb-3">Formas de pago</h4>
+                  <span id="span1">No ha seleccionado forma de pago.</span>
                 <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#payModal">Seleccionar</button>
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
@@ -228,7 +229,7 @@
               <div class="container">
                   <div class="row">
                       <div class="custom-control custom-radio">
-                          <input id="tarjradio" name="payType" type="radio" class="custom-control-input" checked="" required="">
+                          <input id="tarjradio" name="payType" type="radio" class="custom-control-input">
                           <label class="custom-control-label" for="tarjradio">Tarjeta de crédito</label>
                         </div> 
                   </div>
@@ -252,7 +253,7 @@
                     <div class="row">
                       <div class="col-md-5 mb-3">
                           <label for="zip">Vencimiento (MM/AA)</label>
-                          <input type="text" class="form-control" id="creditpay" placeholder="" required="">
+                          <input type="text" class="form-control" id="vencipay" placeholder="" required="">
                           <div class="invalid-feedback">
                             Ingrese fecha vencimiento.
                           </div>
@@ -261,7 +262,7 @@
                   <hr>
                   <div class="row">
                       <div class="custom-control custom-radio">
-                          <input id="bankradio" name="bankType" type="radio" class="custom-control-input" checked="" required="">
+                          <input id="bankradio" name="bankType" type="radio" class="custom-control-input">
                           <label class="custom-control-label" for="bankradio">Depósito bancario</label>
                         </div> 
                   </div>
