@@ -207,7 +207,6 @@
                   </div>
               </div>
             </div>
-
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
@@ -220,56 +219,63 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Formas de pago</h5>
+              <h5 class="modal-title">Forma de pago</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <div class="row">
               <div class="container">
-                <div class="custom-control custom-radio">
-                <input id="credit" name="creditType" type="radio" class="custom-control-input">
-                <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
-              </div>
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                    <label for="creditnum">Número de tarjeta</label>
-                    <input type="text" class="form-control" id="creditnum" placeholder="" required>
-                    <div class="invalid-feedback">
-                      Ingrese número de tarjeta.
-                    </div>
-            <div class="col-md-3 mb-3">
-                <label for="segnum">Código de seg.</label>
-                <input type="text" class="form-control" id="segnum" placeholder="" required>
-                <div class="invalid-feedback">
-                  Ingrese número de tarjeta.
-                </div>
-              </div>
-                </div>
-              </div class="row">
-              <div class="col-md-3 mb-3">
-                  <label for="expiredcard">Vencimiento (MM/AA)</label>
-                  <input type="text" class="form-control" id="expiredcard" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Ingrese fecha de vemcimiento.
+                  <div class="row">
+                      <div class="custom-control custom-radio">
+                          <input id="tarjradio" name="payType" type="radio" class="custom-control-input" checked="" required="">
+                          <label class="custom-control-label" for="tarjradio">Tarjeta de crédito</label>
+                        </div> 
                   </div>
-                </div>
-            <hr>
-          </div class="row"> 
-          <div class="custom-control custom-radio">
-              <input id="bank" name="bankType" type="radio" class="custom-control-input">
-              <label class="custom-control-label" for="bank">Depósito bancario</label>
-            </div>
-          </div>
-            <div class="col-md-5 mb-3">
-                <label for="bankaccount">Número de cuenta</label>
-                <input type="text" class="form-control" id="bankaccount" placeholder="" required>
-                <div class="invalid-feedback">
-                  Ingrese cuenta bancaria.
-                </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-5 mb-3">
+                          <label for="zip">Número de tarjeta</label>
+                          <input type="text" class="form-control" id="creditpay" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            Debe ingresar el número de tarjeta.
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="zip">Código de seg.</label>
+                            <input type="text" class="form-control" id="codpay" placeholder="" required="">
+                            <div class="invalid-feedback">
+                              Ingrese código de seguridad.
+                            </div>
+                          </div>
+                        </div>
+                    <div class="row">
+                      <div class="col-md-5 mb-3">
+                          <label for="zip">Vencimiento (MM/AA)</label>
+                          <input type="text" class="form-control" id="creditpay" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            Ingrese fecha vencimiento.
+                          </div>
+                        </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="custom-control custom-radio">
+                          <input id="bankradio" name="bankType" type="radio" class="custom-control-input" checked="" required="">
+                          <label class="custom-control-label" for="bankradio">Depósito bancario</label>
+                        </div> 
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-5 mb-3">
+                          <label for="zip">Número de cuenta</label>
+                          <input type="text" class="form-control" id="bankpay" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            Debe ingresar el número de cuenta.
+                          </div>
+                        </div>
               </div>
-          </div>
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
