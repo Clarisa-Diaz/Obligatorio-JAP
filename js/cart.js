@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+//Hace los calculos de porccentaje para la compra 
 document.getElementById("premium").addEventListener("change", function(){
     shippingPercentage = 0.15;
     updateTotalCosts();
@@ -89,3 +90,20 @@ document.getElementById("bankradio").addEventListener("change", function(){
     document.getElementById("vencipay").disabled = true;
     document.getElementById("span1").innerHTML = BANKING_PAYMENT;
 });
+
+var form = document.getElementById("cartform");
+
+form.addEventListener("submit", function(e){
+
+    let productNameInput = document.getElementById("dire");
+
+    productNameInput.classList.remove("is-invalid");
+
+    if (productNameInput.value === "")
+    {
+        productNameInput.classList.add("is-invalid");
+        infoMissing = true;
+    }
+    if(e.preventDefault) e.preventDefault();
+    return false;
+}); 
