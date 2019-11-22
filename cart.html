@@ -30,7 +30,7 @@
     <link href="css/dropzone.css" rel="stylesheet">
   </head>
   <body>
-    <form name="cartform">
+    <form id="cartform">
       <nav class="navbar navbar-dark navbar-expand-lg site-header   sticky-top py-1 bg-dark">
           <div class="container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,15 +88,15 @@
                   <h5 class="mb-3">Tipo de envío</h5>
                   <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                      <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+                      <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked="">
                       <label class="custom-control-label" for="premium">Premium 2 a 5 días (15%)</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input id="express" name="publicationType" type="radio" class="custom-control-input" required="">
+                      <input id="express" name="publicationType" type="radio" class="custom-control-input">
                       <label class="custom-control-label" for="express">Express 5 a 8 días (7%)</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input id="standar" name="publicationType" type="radio" class="custom-control-input" required="">
+                      <input id="standar" name="publicationType" type="radio" class="custom-control-input">
                       <label class="custom-control-label" for="standar">Estándar 12 a 15 días (5%)</label>
                     </div>
                     <div class="row">
@@ -107,15 +107,15 @@
                 <h5 class="mb-3">Datos para el envío</h5>
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                      <label for="zip">Dirección</label>
-                      <input type="text" class="form-control" id="dire" placeholder="" required>
+                      <label for="dire">Dirección</label>
+                      <input type="text" class="form-control" id="dire" placeholder="">
                       <div class="invalid-feedback">
                         Ingrese una dirección.
                       </div>
                     </div>
                       <div class="col-md-2 mb-3">
-                          <label for="zip">Número</label>
-                          <input type="text" class="form-control" id="num" placeholder="" required>
+                          <label for="num">Número</label>
+                          <input type="text" class="form-control" id="num" placeholder="">
                           <div class="invalid-feedback">
                             Ingrese número de puerta.
                           </div>
@@ -123,9 +123,10 @@
                   </div>
                   <div class="row">
                       <div class="col-md-3 mb-3">
-                          <label for="zip">Esquina</label>
-                          <input type="text" class="form-control" id="" placeholder="" required>
-                          <div>
+                          <label for="street">Esquina</label>
+                          <input type="text" class="form-control" id="street" placeholder="">
+                          <div class="invalid-feedback">
+                            Ingrese una calle.
                           </div>
                         </div>
                       <div class="col-md-3 mb-3">
@@ -229,7 +230,7 @@
               <div class="container">
                   <div class="row">
                       <div class="custom-control custom-radio">
-                          <input id="tarjradio" name="payType" type="radio" class="custom-control-input">
+                          <input id="tarjradio" name="paymentType" type="radio" class="custom-control-input">
                           <label class="custom-control-label" for="tarjradio">Tarjeta de crédito</label>
                         </div> 
                   </div>
@@ -237,14 +238,14 @@
                   <div class="row">
                       <div class="col-md-5 mb-3">
                           <label for="zip">Número de tarjeta</label>
-                          <input type="text" class="form-control" id="creditpay" placeholder="" required="">
+                          <input type="text" class="form-control" id="creditpay" placeholder="">
                           <div class="invalid-feedback">
                             Ingrese el número de tarjeta.
                           </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="zip">Código de seg.</label>
-                            <input type="text" class="form-control" id="codpay" placeholder="" required="">
+                            <input type="text" class="form-control" id="codpay" placeholder="">
                             <div class="invalid-feedback">
                               Ingrese código de seguridad.
                             </div>
@@ -253,7 +254,7 @@
                     <div class="row">
                       <div class="col-md-5 mb-3">
                           <label for="zip">Vencimiento (MM/AA)</label>
-                          <input type="text" class="form-control" id="vencipay" placeholder="" required="">
+                          <input type="text" class="form-control" id="vencipay" placeholder="">
                           <div class="invalid-feedback">
                             Ingrese fecha de vencimiento.
                           </div>
@@ -262,7 +263,7 @@
                   <hr>
                   <div class="row">
                       <div class="custom-control custom-radio">
-                          <input id="bankradio" name="bankType" type="radio" class="custom-control-input">
+                          <input id="bankradio" name="paymentType" type="radio" class="custom-control-input">
                           <label class="custom-control-label" for="bankradio">Transferencia bancaria</label>
                         </div> 
                   </div>
@@ -270,7 +271,7 @@
                   <div class="row">
                       <div class="col-md-5 mb-3">
                           <label for="zip">Número de cuenta</label>
-                          <input type="text" class="form-control" id="bankpay" placeholder="" required="">
+                          <input type="text" class="form-control" id="bankpay" placeholder="">
                           <div class="invalid-feedback">
                             Debe ingresar el número de cuenta.
                           </div>

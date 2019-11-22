@@ -42,7 +42,7 @@ function showArticles(array){
 }
 
 function updateTotalCosts(){
-    let costoEnvio = subtotal * shippingPercentage;
+    let costoEnvio = Math.round(subtotal * shippingPercentage);
     document.getElementById("comissionText").innerHTML = costoEnvio;
     total = subtotal + costoEnvio;
     document.getElementById("totalCostText").innerHTML = total;
@@ -91,19 +91,41 @@ document.getElementById("bankradio").addEventListener("change", function(){
     document.getElementById("span1").innerHTML = BANKING_PAYMENT;
 });
 
+//Validaciones de campos
 var form = document.getElementById("cartform");
 
 form.addEventListener("submit", function(e){
 
-    let productNameInput = document.getElementById("dire");
+    let adressInput = document.getElementById("dire");
+    let numpuertaInput =document.getElementById("num")
+    let streetInput = document.getElementById("street")
+    infoMissing = false;
 
-    productNameInput.classList.remove("is-invalid");
+    adressInput.classList.remove("is-invalid");
+    numpuertaInput.classList.remove("is-invalid");
+    streetInput.classList.remove("is-invalid")
 
-    if (productNameInput.value === "")
+    if (adressInput.value === "")
     {
-        productNameInput.classList.add("is-invalid");
+        adressInput.classList.add("is-invalid");
         infoMissing = true;
     }
+
+    if (numpuertaInput.value <= 0)
+    {
+        numpuertaInput.classList.add("is-invalid");
+        infoMissing = true;
+    }
+
+    if (streetInput.value === "")
+    {
+        streetInput.classList.add("is-invalid");
+        infoMissing = true;
+    }
+    if(!infoMissing){
+        bootbox.alert("Compra realizada con éxito :)", null);
+    }
+
     if(e.preventDefault) e.preventDefault();
     return false;
-}); 
+});
