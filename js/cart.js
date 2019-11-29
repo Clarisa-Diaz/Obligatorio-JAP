@@ -37,6 +37,7 @@ function showArticles(array){
     updateTotalCosts();
     document.getElementById("cantidad").addEventListener("change", function(){
         updateSubtotal();
+        updateTotalCosts();
         })
     }
 }
